@@ -1,141 +1,226 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUBAI CHOCOLATE | Bộ Sưu Tập Cao Cấp</title>
+    <title>DUBAI CHOCOLATE | 프리미엄 수제 초콜릿</title>
     <style>
         :root {
             --primary-gold: #b38b4d;
             --dark-brown: #3e2723;
             --bg-beige: #f9f6f2;
+            --white: #ffffff;
         }
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--bg-beige); color: #333; }
-        
-        /* Header */
-        header { 
-            background: white; 
-            padding: 15px 5%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            border-bottom: 1px solid #eee; 
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
-        }
-        .logo { font-size: 24px; font-weight: 800; color: var(--primary-gold); letter-spacing: 2px; }
 
-        /* Main Layout */
-        .hero { display: flex; padding: 40px 5%; gap: 30px; flex-wrap: wrap; }
-        .hero-text { flex: 1; min-width: 300px; }
-        .hero-text h2 { font-size: 40px; margin-bottom: 20px; color: var(--dark-brown); }
-        
-        /* Price Card */
-        .price-card { 
-            background: white; 
-            border: 2px solid var(--primary-gold); 
-            padding: 25px; 
-            border-radius: 12px; 
+        body {
+            margin: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-beige);
+            color: #333;
+        }
+
+        /* 헤더 영역 */
+        header {
+            background: white;
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--dark-brown);
+        }
+
+        /* 메인 레이아웃 */
+        .hero {
+            display: flex;
+            padding: 50px 5%;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h2 {
+            font-size: 42px;
+            margin: 10px 0;
+            color: var(--dark-brown);
+            line-height: 1.2;
+        }
+
+        /* 가격 카드 */
+        .price-card {
+            background: white;
+            border: 2px solid var(--primary-gold);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        /* Product Grid */
-        .product-grid { flex: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .card { 
-            background: white; 
-            border-radius: 10px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-            border: 1px solid #eee; 
-            transition: transform 0.3s ease;
+        .price-card h3 { margin-top: 0; color: var(--dark-brown); }
+        .price-display { font-size: 36px; font-weight: 800; color: var(--dark-brown); margin: 10px 0; }
+        .price-info { color: #888; font-size: 14px; }
+
+        /* 상품 그리드 */
+        .product-grid {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
         .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-label { color: white; padding: 10px; font-weight: bold; text-align: center; font-size: 14px; }
-        .card-body { padding: 15px; text-align: center; }
-        .card-desc { font-size: 13px; color: #666; margin-bottom: 10px; min-height: 40px; }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-label {
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .card-body { padding: 15px; }
+        .card-desc { font-size: 13px; color: #666; margin-bottom: 8px; height: 32px; overflow: hidden; }
         .card-price { font-weight: bold; color: var(--dark-brown); font-size: 16px; }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero { flex-direction: column; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo">DUBAI CHOCOLATE</div>
-        <div style="font-weight: bold; cursor: pointer;">GIỎ HÀNG 🛒 <span style="color:red">(0)</span></div>
+        <a href="#" class="logo">DUBAI CHOCOLATE</a>
+        <nav>
+            <ul>
+                <li>홈</li>
+                <li>컬렉션</li>
+                <li>베스트</li>
+                <li>이벤트</li>
+            </ul>
+        </nav>
+        <div style="font-weight: bold;">장바구니 🛒</div>
     </header>
 
     <main class="hero">
         <div class="hero-text">
-            <p style="color: var(--primary-gold); font-weight: bold;">PREMIUM COLLECTION</p>
-            <h2>Bộ Sưu Tập<br>Dubai Chocolate</h2>
+            <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">PREMIUM HANDMADE</p>
+            <h2>두바이 초콜릿<br>시그니처 컬렉션</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0;">
+                <div>✨ 프리미엄 재료</div>
+                <div>👨‍🍳 수제 제작</div>
+                <div>🌴 두바이 레시피</div>
+                <div>🎁 선물용 패키지</div>
+            </div>
+
             <div class="price-card">
-                <h3 style="margin-top: 0;">Set Quà Tặng (8 Viên)</h3>
-                <div style="font-size: 32px; font-weight: 800; color: var(--dark-brown);">49,900đ</div>
-                <p style="color: #777; font-size: 14px;">Miễn phí vận chuyển toàn quốc | Đóng gói cao cấp</p>
-                <button style="width: 100%; background: var(--dark-brown); color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">MUA NGAY</button>
+                <h3>시그니처 선물세트 (8구)</h3>
+                <div class="price-display">49,900원</div>
+                <p class="price-info">무료배송 | 당일발송 | 고급 선물 포장</p>
+                <button style="width: 100%; background: var(--dark-brown); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px;">지금 구매하기</button>
             </div>
         </div>
 
         <div class="product-grid">
             <div class="card">
-                <div class="card-label" style="background: #768d5e;">PISTACHIO</div>
+                <div class="card-label" style="background: #768d5e;">피스타치오</div>
                 <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=400&auto=format&fit=crop" alt="Pistachio">
                 <div class="card-body">
-                    <div class="card-desc">Hạt dẻ cười và sợi Kadaif giòn rụm.</div>
-                    <div class="card-price">49,900đ</div>
+                    <div class="card-desc">고소한 피스타치오와 바삭한 카다이프</div>
+                    <div class="card-price">49,900원</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-label" style="background: #a67c52;">KADAIF</div>
+                <div class="card-label" style="background: #a67c52;">카다이프</div>
                 <img src="https://images.unsplash.com/photo-1623156311000-8488e08d660e?q=80&w=400&auto=format&fit=crop" alt="Kadaif">
                 <div class="card-body">
-                    <div class="card-desc">Sợi mì truyền thống hòa quyện chocolate.</div>
-                    <div class="card-price">49,900đ</div>
+                    <div class="card-desc">원조의 바삭함과 진한 초콜릿의 만남</div>
+                    <div class="card-price">49,900원</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-label" style="background: #5d4037;">CHOCOLATE</div>
+                <div class="card-label" style="background: #5d4037;">초콜릿</div>
                 <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=400&auto=format&fit=crop" alt="Chocolate">
                 <div class="card-body">
-                    <div class="card-desc">Vị chocolate nguyên bản mịn màng.</div>
-                    <div class="card-price">49,900đ</div>
+                    <div class="card-desc">깊고 진한 풍미의 오리지널 맛</div>
+                    <div class="card-price">49,900원</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-label" style="background: #e6a04d;">SALTED CARAMEL</div>
+                <div class="card-label" style="background: #e6a04d;">솔티드 카라멜</div>
                 <img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?q=80&w=400&auto=format&fit=crop" alt="Caramel">
                 <div class="card-body">
-                    <div class="card-desc">Sự cân bằng giữa ngọt và mặn.</div>
-                    <div class="card-price">49,900đ</div>
+                    <div class="card-desc">단짠의 완벽한 조화를 이루는 맛</div>
+                    <div class="card-price">49,900원</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-label" style="background: #8d6e63;">TIRAMISU</div>
+                <div class="card-label" style="background: #8d6e63;">티라미수</div>
                 <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=400&auto=format&fit=crop" alt="Tiramisu">
                 <div class="card-body">
-                    <div class="card-desc">Hương vị Ý tan chảy trong miệng.</div>
-                    <div class="card-price">49,900đ</div>
+                    <div class="card-desc">부드럽게 입안에서 녹는 커피향</div>
+                    <div class="card-price">49,900원</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-label" style="background: #81c784;">COCONUT</div>
+                <div class="card-label" style="background: #81c784;">코코넛</div>
                 <img src="https://images.unsplash.com/photo-1550186082-670cdd604276?q=80&w=400&auto=format&fit=crop" alt="Coconut">
                 <div class="card-body">
-                    <div class="card-desc">Dừa tươi kết hợp chocolate trắng.</div>
-                    <div class="card-price">49,900đ</div>
+                    <div class="card-desc">달콤하고 고소한 코코넛의 풍미</div>
+                    <div class="card-price">49,900원</div>
                 </div>
             </div>
         </div>
     </main>
+
 </body>
 </html>
