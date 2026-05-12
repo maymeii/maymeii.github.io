@@ -3,78 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>두바이 초콜릿 A/B 테스팅</title>
+    <title>Dubai Chocolate - Premium Collection</title>
     <style>
         :root {
             --primary-gold: #b38b4d;
             --dark-brown: #3e2723;
             --bg-beige: #f9f6f2;
+            --white: #ffffff;
         }
-        body { margin: 0; font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; background-color: var(--bg-beige); color: #333; }
+        body { margin: 0; font-family: 'Malgun Gothic', sans-serif; background-color: var(--bg-beige); text-align: center; color: var(--dark-brown); line-height: 1.6; }
         
-        header { background: white; padding: 20px; border-bottom: 1px solid #eee; text-align: center; }
-        .logo { font-size: 24px; font-weight: 800; color: var(--primary-gold); letter-spacing: 2px; }
+        header { background: var(--white); padding: 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: 900; color: var(--primary-gold); letter-spacing: 3px; }
 
-        .test-container { max-width: 1100px; margin: 40px auto; padding: 20px; }
-        .test-version { display: none; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        .active { display: block; animation: fadeIn 0.6s ease-in-out; }
+        .main-container { max-width: 1000px; margin: 40px auto; padding: 40px 20px; background: var(--white); border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .headline { font-size: 38px; font-weight: 800; margin-bottom: 10px; color: var(--dark-brown); }
+        .subtext { font-size: 18px; color: #777; margin-bottom: 45px; }
 
-        .headline { font-size: 38px; color: var(--dark-brown); margin-bottom: 15px; }
-        .subtext { color: #666; margin-bottom: 40px; font-size: 18px; }
-
-        /* Bố cục lưới sản phẩm dựa trên image_4.png[span_2](start_span)[span_2](end_span) */
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-            gap: 25px; 
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: #fff;
-            border: 1px solid #efefef;
-            border-radius: 15px;
+        /* Collage Grid Layout - Lấy cảm hứng trực tiếp từ image_5.png */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 60px;
+            border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s ease;
         }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-
-        .product-tag {
-            color: white;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 15px;
-            text-align: center;
+        .collage-item { 
+            width: 100%; 
+            aspect-ratio: 1 / 1; 
+            object-fit: cover; 
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
+        .collage-item:hover { transform: scale(1.03); filter: brightness(1.1); }
 
-        .product-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
+        /* Section Best Sellers */
+        .best-seller-section { margin-top: 50px; text-align: left; padding: 0 10px; }
+        .section-title { 
+            font-size: 26px; 
+            font-weight: 800;
+            border-left: 6px solid var(--primary-gold); 
+            padding-left: 15px; 
+            margin-bottom: 30px; 
+            display: flex;
+            align-items: center;
         }
-
-        .product-info {
-            padding: 20px;
-            font-size: 14px;
-            color: #444;
-            line-height: 1.6;
-            font-weight: 500;
+        
+        .product-list { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
         }
+        .product-card { 
+            background: #fff; 
+            border: 1px solid #f0e6d6;
+            border-radius: 15px; 
+            padding: 20px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px;
+            transition: 0.3s;
+        }
+        .product-card:hover { border-color: var(--primary-gold); box-shadow: 0 5px 15px rgba(179, 139, 77, 0.1); }
+        
+        .product-img-small { 
+            width: 100px; 
+            height: 100px; 
+            border-radius: 12px; 
+            object-fit: cover; 
+            background: #eee;
+        }
+        .product-info h3 { margin: 0; font-size: 20px; color: var(--dark-brown); }
+        .product-info p { margin: 8px 0 0; font-size: 15px; color: #888; }
 
+        .footer-cta { margin-top: 60px; padding: 40px 0; border-top: 1px solid #eee; }
         .cta-button { 
-            background: var(--dark-brown); color: white; border: none; 
-            padding: 20px 60px; font-size: 20px; font-weight: bold; 
-            border-radius: 10px; cursor: pointer; transition: 0.3s;
+            background: var(--dark-brown); 
+            color: var(--white); 
+            border: none; 
+            padding: 22px 80px; 
+            font-size: 22px; 
+            font-weight: bold; 
+            border-radius: 60px; 
+            cursor: pointer; 
+            transition: 0.3s;
+            box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
         }
-        .cta-button:hover { background: var(--primary-gold); transform: scale(1.05); }
-
-        /* Bảng điều khiển admin */
-        .controls { margin-top: 60px; padding: 25px; border-top: 1px dashed #ccc; background: rgba(255,255,255,0.8); }
-        .btn-toggle { padding: 12px 24px; margin: 5px; cursor: pointer; border: 2px solid var(--dark-brown); background: white; font-weight: bold; border-radius: 8px; }
-        .btn-toggle:hover { background: var(--dark-brown); color: white; }
+        .cta-button:hover { 
+            background: var(--primary-gold); 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(179, 139, 77, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -83,96 +104,60 @@
     <div class="logo">DUBAI CHOCOLATE</div>
 </header>
 
-<div class="test-container">
-    
-    <!-- VERSION A: 8 sản phẩm từ image_4.png[span_3](start_span)[span_3](end_span) -->
-    <div id="versionA" class="test-version active">
-        <p style="color: var(--primary-gold); font-weight: bold; letter-spacing: 1px;">PREMIUM VARIETY SELECTION</p>
-        <h1 class="headline">다양한 맛을 한 번에 만나보세요</h1>
-        <p class="subtext">8가지 프리미엄 수제 초콜릿 컬렉션</p>
+<div class="main-container">
+    <h1 class="headline">더 다채로운 두바이의 맛</h1>
+    <p class="subtext">프리미엄 피스타치오와 카다이프의 환상적인 하모니</p>
 
-        <div class="product-grid">
-            <!-- 1. 피스타치오 (Pistachio) -->
+    <!-- Grid Collage mô phỏng image_5.png -->
+    <div class="collage-grid">
+        <!-- Thay thế bằng link ảnh thực tế từ image_5.png nếu bạn có host ảnh -->
+        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500" class="collage-item" alt="Collection 1">
+        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=500" class="collage-item" alt="Pistachio Detail">
+        <img src="https://images.unsplash.com/photo-1623156311000-8488e08d660e?w=500" class="collage-item" alt="Handmade process">
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500" class="collage-item" alt="Variety box">
+        <img src="https://images.unsplash.com/photo-1550186082-670cdd604276?w=500" class="collage-item" alt="Premium Ingredients">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" class="collage-item" alt="Lifestyle shot">
+    </div>
+
+    <!-- Section Best Sellers với hình ảnh đính kèm -->
+    <div class="best-seller-section">
+        <h2 class="section-title">Best Sellers</h2>
+        <div class="product-list">
+            <!-- Sản phẩm 1 -->
             <div class="product-card">
-                <div class="product-tag" style="background: #6b8e23;">피스타치오</div>
-                <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">고소한 피스타치오와<br>바삭한 카다이프의 조화[span_4](start_span)[span_4](end_span)</div>
+                <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=200" class="product-img-small" alt="Pistachio Original">
+                <div class="product-info">
+                    <h3>오리지널 피스타치오</h3>
+                    <p>바삭한 카다이프와 고소함의 끝판왕</p>
+                </div>
             </div>
-            <!-- 2. 카다이프 (Kadaif) -->
+            <!-- Sản phẩm 2 -->
             <div class="product-card">
-                <div class="product-tag" style="background: #a0522d;">카다이프</div>
-                <img src="https://images.unsplash.com/photo-1623156311000-8488e08d660e?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">바삭한 카다이프와<br>진한 초콜릿의 맛[span_5](start_span)[span_5](end_span)</div>
+                <img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=200" class="product-img-small" alt="Salted Caramel">
+                <div class="product-info">
+                    <h3>솔티드 카라멜</h3>
+                    <p>단짠의 완벽한 조화, 멈출 수 없는 맛</p>
+                </div>
             </div>
-            <!-- 3. 초콜릿 (Chocolate) -->
+            <!-- Sản phẩm 3 -->
             <div class="product-card">
-                <div class="product-tag" style="background: #3e2723;">초콜릿</div>
-                <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">진한 초콜릿의<br>깊고 부드러운 풍미[span_6](start_span)[span_6](end_span)</div>
-            </div>
-            <!-- 4. 솔티드 카라멜 (Salted Caramel) -->
-            <div class="product-card">
-                <div class="product-tag" style="background: #d2691e;">솔티드 카라멜</div>
-                <img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">달콤한 카라멜과<br>짭짤한 시즈닝의 조화[span_7](start_span)[span_7](end_span)</div>
-            </div>
-            <!-- 5. 티라미수 (Tiramisu) -->
-            <div class="product-card">
-                <div class="product-tag" style="background: #5d4037;">티라미수</div>
-                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">이탈리안 티라미수의<br>부드러운 맛[span_8](start_span)[span_8](end_span)</div>
-            </div>
-            <!-- 6. 코코넛 (Coconut) -->
-            <div class="product-card">
-                <div class="product-tag" style="background: #008080;">코코넛</div>
-                <img src="https://images.unsplash.com/photo-1550186082-670cdd604276?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">달콤한 코코넛과<br>초콜릿의 만남[span_9](start_span)[span_9](end_span)</div>
-            </div>
-            <!-- 7. 로조 (Rose) -->
-            <div class="product-card">
-                <div class="product-tag" style="background: #c71585;">로조</div>
-                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">향긋한 장미와<br>초콜릿의 고급스러운 조화[span_10](start_span)[span_10](end_span)</div>
-            </div>
-            <!-- 8. 커피 (Coffee) -->
-            <div class="product-card">
-                <div class="product-tag" style="background: #4b3621;">커피</div>
-                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400" class="product-image">
-                <div class="product-info">깊은 커피 향과<br>진한 초콜릿의 풍미[span_11](start_span)[span_11](end_span)</div>
+                <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=200" class="product-img-small" alt="Dark Tiramisu">
+                <div class="product-info">
+                    <h3>다크 티라미수</h3>
+                    <p>에스프레소 향 가득한 프리미엄 라인</p>
+                </div>
             </div>
         </div>
-
-        <button class="cta-button" onclick="trackClick('A')">시그니처 세트 구매하기</button>
     </div>
 
-    <!-- VERSION B: Chỉ hiển thị 1 sản phẩm chính để so sánh -->
-    <div id="versionB" class="test-version">
-        <p style="color: var(--primary-gold); font-weight: bold;">PREMIUM SINGLE SELECTION</p>
-        <h1 class="headline">오리지널의 품격, 피스타치오 초콜릿</h1>
-        <p class="subtext">가장 완벽한 단 하나의 선택</p>
-        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000" style="width:100%; border-radius:15px; margin-bottom:30px;">
-        <button class="cta-button" onclick="trackClick('B')">지금 구매하기</button>
+    <div class="footer-cta">
+        <button class="cta-button">지금 바로 주문하기</button>
     </div>
-
 </div>
 
-<div class="controls">
-    <p><strong>A/B Test Simulator:</strong></p>
-    <button class="btn-toggle" onclick="showVersion('A')">시안 A 보기 (8가지 제품)</button>
-    <button class="btn-toggle" onclick="showVersion('B')">시안 B 보기 (단일 제품)</button>
-</div>
-
-<script>
-    function showVersion(v) {
-        document.getElementById('versionA').classList.remove('active');
-        document.getElementById('versionB').classList.remove('active');
-        document.getElementById('version' + v).classList.add('active');
-    }
-
-    function trackClick(version) {
-        alert("시안 " + version + "의 클릭 데이터가 성공적으로 기록되었습니다.");
-    }
-</script>
+<footer style="padding: 40px; color: #aaa; font-size: 14px;">
+    &copy; 2026 Dubai Chocolate Premium. All rights reserved.
+</footer>
 
 </body>
 </html>
