@@ -1,247 +1,41 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUBAI CHOCOLATE | 프리미엄 수제 초콜릿</title>
-    <style>
-        :root {
-            --primary-gold: #b38b4d;
-            --dark-brown: #3e2723;
-            --bg-beige: #f9f6f2;
-            --white: #ffffff;
-        }
+<main>
+    <!-- Hero & Tasting Selection -->
+    <section class="hero">
+        <div class="hero-text">
+            <p>다양한 맛을 한 번에!</p>
+            <h2>두바이 초콜릿 컬렉션</h2>
+            <p>★★ 8가지 프리미엄 수제 초콜릿 ★★</p>
+            
+            <div class="hero-features">
+                <div class="feature-item">🍮<br>100% 신선한<br>프리미엄 재료</div>
+                <div class="feature-item">🍫<br>수제 제작<br>프리미엄 초콜릿</div>
+                <div class="feature-item">🌴<br>두바이 현지<br>레시피</div>
+                <div class="feature-item">🎁<br>선물용으로<br>완벽한 패키지</div>
+            </div>
 
-        body {
-            margin: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: var(--bg-beige);
-            color: #333;
-        }
-
-        /* Top Utility Bar */
-        .top-bar {
-            background: var(--dark-brown);
-            color: white;
-            padding: 8px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-        }
-
-        /* Header */
-        header {
-            background: white;
-            padding: 20px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-gold);
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav ul li {
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            padding: 50px 5%;
-            gap: 40px;
-            background: #fffdf9;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h2 {
-            font-size: 42px;
-            margin-bottom: 10px;
-            color: var(--dark-brown);
-        }
-
-        .hero-features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .feature-item {
-            text-align: center;
-            font-size: 13px;
-        }
-
-        /* Product Grid */
-        .product-grid {
-            flex: 2;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .card:hover { transform: translateY(-5px); }
-
-        .card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .card-label {
-            background: var(--primary-gold);
-            color: white;
-            padding: 5px 0;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .card-desc {
-            padding: 10px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        /* Section Title */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 30px;
-        }
-
-        .section-title h3 {
-            font-size: 28px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h3::before, .section-title h3::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            width: 50px;
-            height: 1px;
-            background: #ccc;
-        }
-
-        .section-title h3::before { left: -60px; }
-        .section-title h3::after { right: -60px; }
-
-        /* Best Products */
-        .best-list {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            padding: 0 5%;
-            margin-bottom: 50px;
-        }
-
-        .best-item img {
-            width: 100%;
-            border-radius: 15px;
-        }
-
-    </style>
-</head>
-<body>
-
-    <div class="top-bar">
-        <span>프리미엄 수제 두바이 초콜릿 전문점</span>
-        <div>로그인 | 회원가입 | 주문조회 | 마이페이지</div>
-    </div>
-
-    <header>
-        <div class="logo">DUBAI CHOCOLATE</div>
-        <nav>
-            <ul>
-                <li>홈</li>
-                <li>두바이 초콜릿 ▾</li>
-                <li>선물세트</li>
-                <li>베스트</li>
-                <li>후기</li>
-                <li>이벤트</li>
-                <li>고객센터</li>
-            </ul>
-        </nav>
-        <div class="search-area">
-            <input type="text" placeholder="검색어를 입력하세요">
-            <span>🛒 0</span>
+            <div style="margin-top:40px; padding:20px; border:1px solid #e0d5c1; background:#fff; border-radius: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong>선물세트 (8구)</strong>
+                        <h2 style="color:var(--dark-brown); margin:5px 0;">49,900원</h2>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?q=80&w=200&auto=format&fit=crop" style="width: 80px; border-radius: 5px;" alt="Gift Box">
+                </div>
+                <small>무료배송 | 빠른배송 | 안전포장</small>
+            </div>
         </div>
-    </header>
 
-    <main>
-        <!-- Hero & Tasting Selection -->
-        <section class="hero">
-            <div class="hero-text">
-                <p>다양한 맛을 한 번에!</p>
-                <h2>두바이 초콜릿 컬렉션</h2>
-                <p>★★ 8가지 프리미엄 수제 초콜릿 ★★</p>
-                
-                <div class="hero-features">
-                    <div class="feature-item">🍮<br>100% 신선한<br>프리미엄 재료</div>
-                    <div class="feature-item">🍫<br>수제 제작<br>프리미엄 초콜릿</div>
-                    <div class="feature-item">🌴<br>두바이 현지<br>레시피</div>
-                    <div class="feature-item">🎁<br>선물용으로<br>완벽한 패키지</div>
-                </div>
-
-                <div style="margin-top:40px; padding:20px; border:1px solid #ddd; background:#fff;">
-                    <strong>선물세트 (8구)</strong>
-                    <h2 style="color:var(--dark-brown); margin:10px 0;">49,900원</h2>
-                    <small>무료배송 | 빠른배송 | 안전포장</small>
-                </div>
-            </div>
-
-            <div class="product-grid">
-                <!-- Row 1 -->
-                <div class="card"><div class="card-label">피스타치오</div><img src="https://via.placeholder.com/200x150" alt="맛1"><div class="card-desc">고소한 피스타치오와 바삭한 카다이프</div></div>
-                <div class="card"><div class="card-label">카다이프</div><img src="https://via.placeholder.com/200x150" alt="맛2"><div class="card-desc">바삭한 카다이프와 진한 초콜릿</div></div>
-                <div class="card"><div class="card-label">초콜릿</div><img src="https://via.placeholder.com/200x150" alt="맛3"><div class="card-desc">깊고 부드러운 풍미</div></div>
-                <div class="card"><div class="card-label">솔티드 카라멜</div><img src="https://via.placeholder.com/200x150" alt="맛4"><div class="card-desc">단짠의 완벽한 조화</div></div>
-                <!-- Row 2 -->
-                <div class="card"><div class="card-label">티라미수</div><img src="https://via.placeholder.com/200x150" alt="맛5"><div class="card-desc">부드러운 이탈리안 맛</div></div>
-                <div class="card"><div class="card-label">코코넛</div><img src="https://via.placeholder.com/200x150" alt="맛6"><div class="card-desc">달콤하고 고소한 만남</div></div>
-                <div class="card"><div class="card-label">로즈</div><img src="https://via.placeholder.com/200x150" alt="맛7"><div class="card-desc">향긋한 장미와 초콜릿</div></div>
-                <div class="card"><div class="card-label">커피</div><img src="https://via.placeholder.com/200x150" alt="맛8"><div class="card-desc">진한 커피 향의 풍미</div></div>
-            </div>
-        </section>
-
-        <!-- Best Products Section -->
-        <section class="section-title">
-            <h3>베스트 상품</h3>
-            <p>가장 사랑받는 두바이 초콜릿을 만나보세요</p>
-        </section>
-
-        <section class="best-list">
-            <div class="best-item"><img src="https://via.placeholder.com/250x300" alt="Best 1"></div>
-            <div class="best-item"><img src="https://via.placeholder.com/250x300" alt="Best 2"></div>
-            <div class="best-item"><img src="https://via.placeholder.com/250x300" alt="Best 3"></div>
-            <div class="best-item"><img src="https://via.placeholder.com/250x300" alt="Best 4"></div>
-            <div class="best-item"><img src="https://via.placeholder.com/250x300" alt="Best 5"></div>
-        </section>
-    </main>
-
-</body>
-</html>
+        <div class="product-grid">
+            <!-- Row 1 -->
+            <div class="card"><div class="card-label">피스타치오</div><img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=400&auto=format&fit=crop" alt="Pistachio"><div class="card-desc">고소한 피스타치오와 바삭한 카다이프</div></div>
+            <div class="card"><div class="card-label" style="background:#a67c52;">카다이프</div><img src="https://images.unsplash.com/photo-1623156311000-8488e08d660e?q=80&w=400&auto=format&fit=crop" alt="Kadaif"><div class="card-desc">바삭한 카다이프와 진한 초콜릿</div></div>
+            <div class="card"><div class="card-label" style="background:#5d4037;">초콜릿</div><img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=400&auto=format&fit=crop" alt="Chocolate"><div class="card-desc">깊고 부드러운 풍미</div></div>
+            <div class="card"><div class="card-label" style="background:#e6a04d;">솔티드 카라멜</div><img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?q=80&w=400&auto=format&fit=crop" alt="Caramel"><div class="card-desc">단짠의 완벽한 조화</div></div>
+            <!-- Row 2 -->
+            <div class="card"><div class="card-label" style="background:#8d6e63;">티라미수</div><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=400&auto=format&fit=crop" alt="Tiramisu"><div class="card-desc">부드러운 이탈리안 맛</div></div>
+            <div class="card"><div class="card-label" style="background:#81c784;">코코넛</div><img src="https://images.unsplash.com/photo-1550186082-670cdd604276?q=80&w=400&auto=format&fit=crop" alt="Coconut"><div class="card-desc">달콤하고 고소한 만남</div></div>
+            <div class="card"><div class="card-label" style="background:#ec407a;">로즈</div><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop" alt="Rose"><div class="card-desc">향긋한 장미와 초콜릿</div></div>
+            <div class="card"><div class="card-label" style="background:#6d4c41;">커피</div><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=400&auto=format&fit=crop" alt="Coffee"><div class="card-desc">진한 커피 향의 풍미</div></div>
+        </div>
+    </section>
+</main>
