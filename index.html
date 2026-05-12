@@ -15,30 +15,62 @@
         header { background: white; padding: 20px; border-bottom: 1px solid #eee; }
         .logo { font-size: 24px; font-weight: 800; color: var(--primary-gold); }
 
-        .test-container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        .test-container { max-width: 1100px; margin: 40px auto; padding: 20px; }
         .test-version { display: none; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        
-        /* Hiển thị phiên bản đang được chọn */
         .active { display: block; animation: fadeIn 0.5s; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .hero-image { width: 100%; max-height: 500px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
-        
-        .headline { font-size: 32px; color: var(--dark-brown); margin-bottom: 15px; }
-        .subtext { color: #666; margin-bottom: 25px; }
+        .headline { font-size: 36px; color: var(--dark-brown); margin-bottom: 10px; }
+        .subtext { color: #666; margin-bottom: 30px; font-size: 18px; }
+
+        /* Grid hiển thị các sản phẩm Best (từ image_4.png) */
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+            gap: 20px; 
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .product-tag {
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 10px;
+            font-size: 13px;
+            color: #444;
+            line-height: 1.4;
+        }
 
         .cta-button { 
             background: var(--dark-brown); color: white; border: none; 
             padding: 18px 40px; font-size: 18px; font-weight: bold; 
             border-radius: 8px; cursor: pointer; transition: 0.3s;
+            margin-top: 30px;
         }
         .cta-button:hover { background: var(--primary-gold); }
 
-        /* Bảng điều khiển để so sánh */
         .controls { margin-top: 50px; padding: 20px; border-top: 1px dashed #ccc; background: #fff; }
         .btn-toggle { padding: 10px 20px; margin: 5px; cursor: pointer; border: 1px solid var(--dark-brown); background: white; border-radius: 5px; }
-        .btn-toggle:hover { background: var(--bg-beige); }
     </style>
 </head>
 <body>
@@ -49,47 +81,92 @@
 
 <div class="test-container">
     
-    <!-- VERSION A: Multiple Products (Hình ảnh nhiều sản phẩm trong 1 khung hình) -->
+    <!-- VERSION A: Nhiều sản phẩm (Giao diện chính dựa trên image_4.png) -->
     <div id="versionA" class="test-version active">
-        <p style="color: var(--primary-gold); font-weight: bold;">[광고 시안 A: 버라이어티 팩]</p>
-        <h1 class="headline">다양한 맛을 한 번에! 두바이 초콜릿 컬렉션</h1>
-        <p class="subtext">피스타치오, 카라멜, 티라미수 등 8가지 프리미엄 맛을 한 상자에 담았습니다.</p>
-        <!-- Ảnh minh họa nhiều sản phẩm (Concept image_3.png)[span_0](start_span)[span_0](end_span) -->
-        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=1000" class="hero-image" alt="Nhiều sản phẩm Dubai Chocolate">
-        <button class="cta-button" onclick="trackClick('A')">컬렉션 전체 구매하기</button>
+        <p style="color: var(--primary-gold); font-weight: bold;">[광고 시안 A: 8가지 프리미엄 컬렉션]</p>
+        <h1 class="headline">다양한 맛을 한 번에!</h1>
+        <p class="subtext">두바이 현지의 레시피로 만든 8가지 수제 초콜릿을 만나보세요.</p>
+
+        <!-- Grid sản phẩm mô phỏng image_4.png -->
+        <div class="product-grid">
+            <!-- 1. Pistachio -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #689f38;">피스타치오</div>
+                <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=400" class="product-image">
+                <div class="product-info">고소한 피스타치오와<br>바삭한 카다이프의 조화</div>
+            </div>
+            <!-- 2. Kadaif -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #8d6e63;">카다이프</div>
+                <img src="https://images.unsplash.com/photo-1623156311000-8488e08d660e?q=80&w=400" class="product-image">
+                <div class="product-info">바삭한 카다이프와<br>진한 초콜릿의 맛</div>
+            </div>
+            <!-- 3. Chocolate -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #3e2723;">초콜릿</div>
+                <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=400" class="product-image">
+                <div class="product-info">진한 초콜릿의<br>깊고 부드러운 풍미</div>
+            </div>
+            <!-- 4. Salted Caramel -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #f57c00;">솔티드 카라멜</div>
+                <img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?q=80&w=400" class="product-image">
+                <div class="product-info">달콤한 카라멜과<br>짭짤한 시즈닝의 조화</div>
+            </div>
+            <!-- 5. Tiramisu -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #4e342e;">티라미수</div>
+                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=400" class="product-image">
+                <div class="product-info">이탈리안 티라미수의<br>부드러운 맛</div>
+            </div>
+            <!-- 6. Coconut -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #00838f;">코코넛</div>
+                <img src="https://images.unsplash.com/photo-1550186082-670cdd604276?q=80&w=400" class="product-image">
+                <div class="product-info">달콤한 코코넛과<br>초콜릿의 만남</div>
+            </div>
+            <!-- 7. Rose -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #c2185b;">로즈</div>
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400" class="product-image">
+                <div class="product-info">향긋한 장미와<br>초콜릿의 고급스러운 조화</div>
+            </div>
+            <!-- 8. Coffee -->
+            <div class="product-card">
+                <div class="product-tag" style="background: #5d4037;">커피</div>
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=400" class="product-image">
+                <div class="product-info">깊은 커피 향과<br>진한 초콜릿의 풍미</div>
+            </div>
+        </div>
+
+        <button class="cta-button" onclick="trackClick('A')">전체 세트 구매하기 (49,900원)</button>
     </div>
 
-    <!-- VERSION B: Single Key Product (Chỉ dành để đối chiếu khi cần) -->
+    <!-- VERSION B: Đối chiếu (1 sản phẩm chủ lực) -->
     <div id="versionB" class="test-version">
         <p style="color: var(--primary-gold); font-weight: bold;">[광고 시안 B: 단일 주력 상품]</p>
-        <h1 class="headline">단 하나의 압도적 풍미, 오리지널 피스타치오</h1>
-        <p class="subtext">가장 사랑받는 베스트셀러, 피스타치오 초콜릿의 진수를 경험하세요.</p>
-        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=1000" class="hero-image" alt="Một sản phẩm chủ lực">
-        <button class="cta-button" onclick="trackClick('B')">피스타치오 구매하기</button>
+        <h1 class="headline">오직 피스타치오에 집중하다</h1>
+        <p class="subtext">최고급 피스타치오 원물과 카다이프의 완벽한 조화.</p>
+        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=1000" style="width:100%; border-radius:12px;">
+        <button class="cta-button" onclick="trackClick('B')">피스타치오 초콜릿 구매하기</button>
     </div>
 
 </div>
 
 <div class="controls">
-    <p><strong>A/B 테스팅 시뮬레이터</strong> (비교용 버튼):</p>
-    <button class="btn-toggle" onclick="showVersion('A')">시안 A 보기 (다수 제품)</button>
-    <button class="btn-toggle" onclick="showVersion('B')">시안 B 보기 (단일 제품)</button>
+    <button class="btn-toggle" onclick="showVersion('A')">시안 A (다수 제품)</button>
+    <button class="btn-toggle" onclick="showVersion('B')">시안 B (단일 제품)</button>
 </div>
 
 <script>
-    // Hàm chuyển đổi thủ công giữa các phiên bản
     function showVersion(v) {
-        // Loại bỏ lớp 'active' ở tất cả phiên bản
         document.getElementById('versionA').classList.remove('active');
         document.getElementById('versionB').classList.remove('active');
-        
-        // Hiển thị phiên bản được chọn
         document.getElementById('version' + v).classList.add('active');
     }
 
-    // Ghi nhận dữ liệu nhấp chuột (Simulated)
     function trackClick(version) {
-        alert("시안 " + version + "의 클릭율(CTR) 데이터가 전송되었습니다.");
+        alert("시안 " + version + " 클릭 완료!");
     }
 </script>
 
