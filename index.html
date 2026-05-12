@@ -3,183 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUBAI CHOCOLATE | 프리미엄 수제 초콜릿</title>
+    <title>두바이 초콜릿 A/B 테스팅 - Version A</title>
     <style>
         :root {
-            --primary-gold: #c5a059;
-            --dark-green: #1a2e1a;
-            --text-dark: #333;
-            --bg-light: #f9f9f7;
+            --primary-gold: #b38b4d;
+            --dark-brown: #3e2723;
+            --bg-beige: #f9f6f2;
         }
-
-        body {
-            margin: 0;
-            font-family: 'Pretendard', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
-
-        /* Header */
-        header {
-            background: white;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .logo { font-weight: bold; font-size: 24px; color: var(--primary-gold); letter-spacing: 2px; }
-        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 500; }
-
-        /* Hero Banner */
-        .hero {
-            background-color: #e2e2d8;
-            height: 450px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding: 0 10%;
-            overflow: hidden;
-        }
-
-        .hero-text h1 { font-size: 48px; margin-bottom: 10px; color: var(--dark-green); }
-        .hero-text p { font-size: 18px; color: #666; }
-
-        /* Product Section */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 40px;
-        }
-
-        .section-title h2 { font-size: 28px; position: relative; display: inline-block; }
-        .section-title h2::before, .section-title h2::after {
-            content: ""; position: absolute; top: 50%; width: 50px; height: 1px; background: #ccc;
-        }
-        .section-title h2::before { left: -70px; }
-        .section-title h2::after { right: -70px; }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-            padding: 0 10% 80px;
-        }
-
-        /* Product Card */
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .card:hover { transform: translateY(-5px); }
-
-        .card-img {
-            width: 100%;
-            height: 200px;
-            background: #eee;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .badge {
-            position: absolute; top: 10px; left: 10px;
-            background: var(--primary-gold); color: white;
-            padding: 3px 10px; font-size: 12px; border-radius: 4px;
-        }
-
-        .card-info { padding: 20px; position: relative; }
-        .card-info h3 { font-size: 16px; margin: 0 0 8px; }
-        .card-info p { font-size: 13px; color: #777; margin-bottom: 15px; height: 32px; overflow: hidden; }
-        .price { font-weight: bold; font-size: 18px; color: #222; }
+        body { margin: 0; font-family: 'Malgun Gothic', sans-serif; background-color: var(--bg-beige); text-align: center; }
         
-        .cart-btn {
-            position: absolute; bottom: 20px; right: 20px;
-            background: var(--dark-green); color: white;
-            border: none; width: 35px; height: 35px; border-radius: 5px;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
+        header { background: white; padding: 20px; border-bottom: 1px solid #eee; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary-gold); }
+
+        .test-container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        .test-version { display: none; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        
+        /* Hiển thị phiên bản đang được chọn */
+        .active { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .hero-image { width: 100%; max-height: 500px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+        
+        .headline { font-size: 32px; color: var(--dark-brown); margin-bottom: 15px; }
+        .subtext { color: #666; margin-bottom: 25px; }
+
+        .cta-button { 
+            background: var(--dark-brown); color: white; border: none; 
+            padding: 18px 40px; font-size: 18px; font-weight: bold; 
+            border-radius: 8px; cursor: pointer; transition: 0.3s;
         }
+        .cta-button:hover { background: var(--primary-gold); }
+
+        /* Bảng điều khiển để so sánh */
+        .controls { margin-top: 50px; padding: 20px; border-top: 1px dashed #ccc; background: #fff; }
+        .btn-toggle { padding: 10px 20px; margin: 5px; cursor: pointer; border: 1px solid var(--dark-brown); background: white; border-radius: 5px; }
+        .btn-toggle:hover { background: var(--bg-beige); }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">DUBAI CHOCOLATE</div>
-    <nav>
-        <a href="#">홈</a>
-        <a href="#">두바이 초콜릿</a>
-        <a href="#">선물세트</a>
-        <a href="#">후기</a>
-        <a href="#">이벤트</a>
-    </nav>
-    <div class="user-menu">🔍 🛒</div>
 </header>
 
-<section class="hero">
-    <div class="hero-text">
-        <p>프리미엄 수제 초콜릿</p>
-        <h1>두바이 초콜릿</h1>
-        <p>피스타치오의 고소함과 카다이프의 바삭함이 어우러진 맛</p>
+<div class="test-container">
+    
+    <!-- VERSION A: Multiple Products (Hình ảnh nhiều sản phẩm trong 1 khung hình) -->
+    <div id="versionA" class="test-version active">
+        <p style="color: var(--primary-gold); font-weight: bold;">[광고 시안 A: 버라이어티 팩]</p>
+        <h1 class="headline">다양한 맛을 한 번에! 두바이 초콜릿 컬렉션</h1>
+        <p class="subtext">피스타치오, 카라멜, 티라미수 등 8가지 프리미엄 맛을 한 상자에 담았습니다.</p>
+        <!-- Ảnh minh họa nhiều sản phẩm (Concept image_3.png)[span_0](start_span)[span_0](end_span) -->
+        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=1000" class="hero-image" alt="Nhiều sản phẩm Dubai Chocolate">
+        <button class="cta-button" onclick="trackClick('A')">컬렉션 전체 구매하기</button>
     </div>
-    <div class="hero-img">
-        <img src="https://via.placeholder.com/400x300/c5a059/ffffff?text=Dubai+Chocolate" alt="Main Product" style="border-radius: 15px;">
-    </div>
-</section>
 
-<div class="section-title">
-    <h2>베스트 상품</h2>
-    <p>가장 사랑받는 두바이 초콜릿을 만나보세요</p>
+    <!-- VERSION B: Single Key Product (Chỉ dành để đối chiếu khi cần) -->
+    <div id="versionB" class="test-version">
+        <p style="color: var(--primary-gold); font-weight: bold;">[광고 시안 B: 단일 주력 상품]</p>
+        <h1 class="headline">단 하나의 압도적 풍미, 오리지널 피스타치오</h1>
+        <p class="subtext">가장 사랑받는 베스트셀러, 피스타치오 초콜릿의 진수를 경험하세요.</p>
+        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=1000" class="hero-image" alt="Một sản phẩm chủ lực">
+        <button class="cta-button" onclick="trackClick('B')">피스타치오 구매하기</button>
+    </div>
+
 </div>
 
-<div class="product-grid">
-    <div class="card">
-        <div class="card-img" style="background-image: url('https://via.placeholder.com/300x250/3e2723/ffffff?text=Pistachio');"></div>
-        <div class="card-info">
-            <h3>두바이 피스타치오 초콜릿</h3>
-            <p>진한 피스타치오와 바삭한 카다이프의 완벽한 조화</p>
-            <div class="price">19,900원</div>
-            <button class="cart-btn">🛒</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-img" style="background-image: url('https://via.placeholder.com/300x250/5d4037/ffffff?text=Caramel');">
-            <span class="badge">BEST</span>
-        </div>
-        <div class="card-info">
-            <h3>솔티드 카라멜 초콜릿</h3>
-            <p>달콤한 카라멜과 짭짤한 시즈닝의 환상적인 만남</p>
-            <div class="price">21,900원</div>
-            <button class="cart-btn">🛒</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-img" style="background-image: url('https://via.placeholder.com/300x250/2e1a1a/ffffff?text=Kadaif');"></div>
-        <div class="card-info">
-            <h3>초콜릿 카다이프</h3>
-            <p>바삭한 카다이프와 진한 초콜릿의 고급스러운 맛</p>
-            <div class="price">19,900원</div>
-            <button class="cart-btn">🛒</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-img" style="background-image: url('https://via.placeholder.com/300x250/f5f5f5/5d4037?text=Coconut');">
-            <span class="badge" style="background: #4caf50;">NEW</span>
-        </div>
-        <div class="card-info">
-            <h3>코코넛 초콜릿</h3>
-            <p>달콤한 코코넛과 초콜릿의 이국적인 조화</p>
-            <div class="price">19,900원</div>
-            <button class="cart-btn">🛒</button>
-        </div>
-    </div>
+<div class="controls">
+    <p><strong>A/B 테스팅 시뮬레이터</strong> (비교용 버튼):</p>
+    <button class="btn-toggle" onclick="showVersion('A')">시안 A 보기 (다수 제품)</button>
+    <button class="btn-toggle" onclick="showVersion('B')">시안 B 보기 (단일 제품)</button>
 </div>
+
+<script>
+    // Hàm chuyển đổi thủ công giữa các phiên bản
+    function showVersion(v) {
+        // Loại bỏ lớp 'active' ở tất cả phiên bản
+        document.getElementById('versionA').classList.remove('active');
+        document.getElementById('versionB').classList.remove('active');
+        
+        // Hiển thị phiên bản được chọn
+        document.getElementById('version' + v).classList.add('active');
+    }
+
+    // Ghi nhận dữ liệu nhấp chuột (Simulated)
+    function trackClick(version) {
+        alert("시안 " + version + "의 클릭율(CTR) 데이터가 전송되었습니다.");
+    }
+</script>
 
 </body>
 </html>
