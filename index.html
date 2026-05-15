@@ -1,250 +1,268 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dubai Chocolate</title>
+// FILE: App.jsx
+// React + TailwindCSS Luxury Dubai Chocolate Landing Page
+// Designed for A/B Testing + Fake Checkout Conversion
+// Install:
+// npm install
+// npm run dev
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-    body{
-      background:#fff8f0;
-      color:#333;
-    }
+const chocolates = [
+  {
+    id: 1,
+    name: "Royal Pistachio",
+    price: "$18",
+    image: "https://picsum.photos/500/500?1",
+  },
+  {
+    id: 2,
+    name: "Golden Caramel",
+    price: "$20",
+    image: "https://picsum.photos/500/500?2",
+  },
+  {
+    id: 3,
+    name: "Luxury Hazelnut",
+    price: "$17",
+    image: "https://picsum.photos/500/500?3",
+  },
+  {
+    id: 4,
+    name: "Dubai Signature",
+    price: "$22",
+    image: "https://picsum.photos/500/500?4",
+  },
+  {
+    id: 5,
+    name: "White Vanilla",
+    price: "$16",
+    image: "https://picsum.photos/500/500?5",
+  },
+  {
+    id: 6,
+    name: "Dark Royal",
+    price: "$19",
+    image: "https://picsum.photos/500/500?6",
+  },
+  {
+    id: 7,
+    name: "Date Fusion",
+    price: "$21",
+    image: "https://picsum.photos/500/500?7",
+  },
+  {
+    id: 8,
+    name: "Premium Gold Box",
+    price: "$35",
+    image: "https://picsum.photos/500/500?8",
+  },
+];
 
-    header{
-      background: linear-gradient(135deg,#4b2e2e,#8b5e3c);
-      color:white;
-      text-align:center;
-      padding:80px 20px;
-    }
+export default function App() {
+  const [selected, setSelected] = useState(null);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
-    header h1{
-      font-size:52px;
-      margin-bottom:20px;
-    }
+  return (
+    <div className="bg-[#0f0b08] text-white min-h-screen overflow-x-hidden">
 
-    header p{
-      max-width:700px;
-      margin:auto;
-      font-size:18px;
-      line-height:1.6;
-    }
+      {/* HERO */}
+      <section className="relative h-screen flex items-center justify-center">
 
-    .btn{
-      display:inline-block;
-      margin-top:30px;
-      padding:14px 28px;
-      background:#ffcc70;
-      color:#222;
-      text-decoration:none;
-      border-radius:10px;
-      font-weight:bold;
-      transition:0.3s;
-    }
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-    .btn:hover{
-      background:#ffb347;
-    }
+        <img
+          src="https://images.unsplash.com/photo-1549007994-cb92caebd54b"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-    .section-title{
-      text-align:center;
-      padding:60px 20px 20px;
-      font-size:36px;
-      color:#5a3825;
-    }
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-20 text-center px-6"
+        >
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 text-yellow-400">
+            Dubai Chocolate
+          </h1>
 
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      padding:40px;
-      max-width:1400px;
-      margin:auto;
-    }
+          <p className="max-w-2xl mx-auto text-lg md:text-2xl text-gray-200 leading-relaxed">
+            Luxury handcrafted chocolates inspired by the elegance and richness
+            of Dubai.
+          </p>
 
-    .card{
-      background:white;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 6px 18px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
+          <div className="mt-10 flex gap-5 justify-center flex-wrap">
+            <button className="bg-yellow-400 hover:bg-yellow-300 text-black px-8 py-4 rounded-full font-bold transition">
+              Shop Now
+            </button>
 
-    .card:hover{
-      transform:translateY(-5px);
-    }
+            <button className="border border-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-full font-bold transition">
+              Explore Collection
+            </button>
+          </div>
+        </motion.div>
+      </section>
 
-    .card img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-    }
+      {/* TRUST BAR */}
+      <section className="bg-[#1a140f] py-5 text-center text-yellow-300 text-sm tracking-widest">
+        PREMIUM INGREDIENTS • WORLDWIDE SHIPPING • LIMITED COLLECTION
+      </section>
 
-    .card-content{
-      padding:20px;
-    }
+      {/* PRODUCTS */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
 
-    .card h3{
-      margin-bottom:10px;
-      color:#5a3825;
-    }
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold text-yellow-400 mb-6">
+            Signature Collection
+          </h2>
 
-    .card p{
-      font-size:15px;
-      line-height:1.5;
-      margin-bottom:15px;
-    }
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Every chocolate is crafted with premium ingredients for an
+            unforgettable luxury experience.
+          </p>
+        </div>
 
-    .price{
-      font-size:20px;
-      font-weight:bold;
-      color:#d2691e;
-    }
+        <div className="grid md:grid-cols-4 gap-8">
 
-    .about{
-      max-width:1000px;
-      margin:80px auto;
-      padding:40px;
-      text-align:center;
-      line-height:1.8;
-    }
+          {chocolates.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-[#1a140f] rounded-3xl overflow-hidden border border-yellow-500/10 hover:border-yellow-400 transition"
+            >
 
-    .about h2{
-      font-size:38px;
-      margin-bottom:20px;
-      color:#5a3825;
-    }
+              <div className="overflow-hidden">
+                <img
+                  src={item.image}
+                  className="w-full h-72 object-cover hover:scale-110 transition duration-700"
+                />
+              </div>
 
-    footer{
-      background:#4b2e2e;
-      color:white;
-      text-align:center;
-      padding:30px;
-      margin-top:60px;
-    }
-  </style>
-</head>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold mb-2">
+                  {item.name}
+                </h3>
 
-<body>
+                <p className="text-gray-400 mb-5">
+                  Rich flavor with premium Dubai-inspired ingredients.
+                </p>
 
-  <header>
-    <h1>Dubai Chocolate</h1>
+                <div className="flex items-center justify-between">
+                  <span className="text-yellow-400 font-bold text-xl">
+                    {item.price}
+                  </span>
 
-    <p>
-      Discover premium handcrafted chocolate inspired by the luxury
-      and elegance of Dubai. Rich flavors, smooth texture, and unforgettable taste.
-    </p>
+                  <button
+                    onClick={() => {
+                      setSelected(item);
+                      setCheckoutOpen(true);
+                    }}
+                    className="bg-yellow-400 text-black px-5 py-2 rounded-full font-bold hover:bg-yellow-300 transition"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
 
-    <a href="#products" class="btn">Explore Collection</a>
-  </header>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-  <h2 class="section-title" id="products">
-    Our Chocolate Collection
-  </h2>
+      {/* ABOUT */}
+      <section className="py-24 px-6 bg-[#16110d]">
 
-  <section class="products">
+        <div className="max-w-5xl mx-auto text-center">
 
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=1" alt="">
-      <div class="card-content">
-        <h3>Gold Pistachio Chocolate</h3>
-        <p>Luxury milk chocolate with roasted pistachio filling.</p>
-        <div class="price">$18</div>
-      </div>
+          <h2 className="text-5xl font-bold text-yellow-400 mb-8">
+            Crafted For Luxury
+          </h2>
+
+          <p className="text-gray-300 text-xl leading-relaxed">
+            Dubai Chocolate combines elegance, tradition, and premium taste into
+            one unforgettable experience. Every product is designed to deliver
+            exclusivity and luxury.
+          </p>
+
+        </div>
+
+      </section>
+
+      {/* FAKE CHECKOUT MODAL */}
+      {checkoutOpen && selected && (
+
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-5">
+
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-[#1b1511] rounded-3xl max-w-md w-full p-8 border border-yellow-400"
+          >
+
+            <h2 className="text-3xl font-bold text-yellow-400 mb-6">
+              Checkout
+            </h2>
+
+            <img
+              src={selected.image}
+              className="w-full h-56 object-cover rounded-2xl mb-5"
+            />
+
+            <h3 className="text-2xl font-bold mb-2">
+              {selected.name}
+            </h3>
+
+            <p className="text-gray-400 mb-5">
+              Exclusive Dubai luxury chocolate collection.
+            </p>
+
+            <div className="text-yellow-400 text-3xl font-bold mb-6">
+              {selected.price}
+            </div>
+
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="w-full bg-black/40 border border-gray-700 rounded-xl px-4 py-3 mb-4 outline-none"
+            />
+
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="w-full bg-black/40 border border-gray-700 rounded-xl px-4 py-3 mb-4 outline-none"
+            />
+
+            <button
+              className="w-full bg-yellow-400 text-black py-4 rounded-xl font-bold hover:bg-yellow-300 transition"
+              onClick={() => {
+                alert("A/B Testing Conversion Triggered!");
+                setCheckoutOpen(false);
+              }}
+            >
+              Complete Order
+            </button>
+
+            <button
+              onClick={() => setCheckoutOpen(false)}
+              className="w-full mt-4 text-gray-400 hover:text-white"
+            >
+              Cancel
+            </button>
+
+          </motion.div>
+
+        </div>
+
+      )}
+
+      {/* FOOTER */}
+      <footer className="py-10 text-center text-gray-500 border-t border-yellow-500/10">
+        © 2026 Dubai Chocolate — Luxury Experience
+      </footer>
+
     </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=2" alt="">
-      <div class="card-content">
-        <h3>Dark Royal Chocolate</h3>
-        <p>Premium dark chocolate crafted for intense cocoa lovers.</p>
-        <div class="price">$20</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=3" alt="">
-      <div class="card-content">
-        <h3>Hazelnut Cream Bar</h3>
-        <p>Smooth hazelnut cream wrapped in silky chocolate layers.</p>
-        <div class="price">$16</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=4" alt="">
-      <div class="card-content">
-        <h3>White Vanilla Pearl</h3>
-        <p>Sweet white chocolate infused with natural vanilla flavor.</p>
-        <div class="price">$17</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=5" alt="">
-      <div class="card-content">
-        <h3>Caramel Desert Cube</h3>
-        <p>Golden caramel center with crunchy chocolate coating.</p>
-        <div class="price">$19</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=6" alt="">
-      <div class="card-content">
-        <h3>Luxury Date Chocolate</h3>
-        <p>Traditional Dubai dates blended with fine chocolate.</p>
-        <div class="price">$21</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=7" alt="">
-      <div class="card-content">
-        <h3>Berry Fusion Delight</h3>
-        <p>Chocolate combined with sweet berry cream sensation.</p>
-        <div class="price">$18</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/400/300?random=8" alt="">
-      <div class="card-content">
-        <h3>Dubai Signature Box</h3>
-        <p>An exclusive collection of our best-selling chocolates.</p>
-        <div class="price">$35</div>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="about">
-    <h2>Why Choose Dubai Chocolate?</h2>
-
-    <p>
-      Dubai Chocolate combines luxury ingredients, modern craftsmanship,
-      and unforgettable flavors into one premium experience.
-      Every bite is designed to bring elegance and satisfaction.
-    </p>
-
-    <br>
-
-    <p>
-      Perfect for gifts, celebrations, or personal indulgence.
-      Trusted by chocolate lovers around the world.
-    </p>
-  </section>
-
-  <footer>
-    © 2026 Dubai Chocolate — Premium Taste Experience
-  </footer>
-
-</body>
-</html>
+  );
+}
