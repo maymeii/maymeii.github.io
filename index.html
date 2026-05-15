@@ -1,66 +1,250 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dubai Chocolate - Cửa hàng thử nghiệm</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Thêm icon font nếu cần -->
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dubai Chocolate</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#fff8f0;
+      color:#333;
+    }
+
+    header{
+      background: linear-gradient(135deg,#4b2e2e,#8b5e3c);
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    header h1{
+      font-size:52px;
+      margin-bottom:20px;
+    }
+
+    header p{
+      max-width:700px;
+      margin:auto;
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 28px;
+      background:#ffcc70;
+      color:#222;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#ffb347;
+    }
+
+    .section-title{
+      text-align:center;
+      padding:60px 20px 20px;
+      font-size:36px;
+      color:#5a3825;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      padding:40px;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    .card{
+      background:white;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      color:#5a3825;
+    }
+
+    .card p{
+      font-size:15px;
+      line-height:1.5;
+      margin-bottom:15px;
+    }
+
+    .price{
+      font-size:20px;
+      font-weight:bold;
+      color:#d2691e;
+    }
+
+    .about{
+      max-width:1000px;
+      margin:80px auto;
+      padding:40px;
+      text-align:center;
+      line-height:1.8;
+    }
+
+    .about h2{
+      font-size:38px;
+      margin-bottom:20px;
+      color:#5a3825;
+    }
+
+    footer{
+      background:#4b2e2e;
+      color:white;
+      text-align:center;
+      padding:30px;
+      margin-top:60px;
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Thanh thông báo trên cùng -->
-    <header class="top-bar">
-        <div class="container">
-            <div class="top-links">
-                <a href="#">Đăng ký</a> | <a href="#">Đăng nhập</a> | <a href="#">Đơn hàng</a> | <a href="#">CSKH</a>
-            </div>
-        </div>
-    </header>
+  <header>
+    <h1>Dubai Chocolate</h1>
 
-    <!-- Menu chính -->
-    <nav class="main-nav">
-        <div class="container">
-            <div class="logo">
-                <h1 style="color: #8B5E3C;">DUBAI <span style="font-weight: 300;">CHOCOLATE</span></h1>
-            </div>
-            <ul class="menu-items">
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Dubai Chocolate</a></li>
-                <li><a href="#">Quà tặng</a></li>
-                <li><a href="#">Bán chạy</a></li>
-                <li><a href="#">Đánh giá</a></li>
-                <li><a href="#">Sự kiện</a></li>
-            </ul>
-            <div class="search-cart">
-                <input type="text" placeholder="Tìm kiếm sản phẩm...">
-                <div class="cart-icon">🛒 <span>0</span></div>
-            </div>
-        </div>
-    </nav>
+    <p>
+      Discover premium handcrafted chocolate inspired by the luxury
+      and elegance of Dubai. Rich flavors, smooth texture, and unforgettable taste.
+    </p>
 
-    <!-- Banner chính (Hero Section) -->
-    <section class="hero-banner">
-        <div class="container banner-content">
-            <div class="text-side">
-                <h3>Socola thủ công cao cấp</h3>
-                <h2>DUBAI CHOCOLATE</h2>
-                <p>Trải nghiệm hương vị đặc biệt từ sự kết hợp của hạt dẻ cười béo ngậy và sợi Kadaif giòn tan.</p>
-                
-                <div class="features">
-                    <div class="feature-item"><span>🥜</span><p>100% Hạt dẻ cười</p></div>
-                    <div class="feature-item"><span>🍫</span><p>Làm thủ công</p></div>
-                    <div class="feature-item"><span>🎁</span><p>Đóng gói quà</p></div>
-                    <div class="feature-item"><span>🚚</span><p>Giao hàng nhanh</p></div>
-                </div>
-            </div>
-            <div class="image-side">
-                <!-- "IMG_1471.jpeg" -->
-                <img src="chocolate-image.jpg" alt="Dubai Chocolate" class="main-img">
-            </div>
-        </div>
-    </section>
+    <a href="#products" class="btn">Explore Collection</a>
+  </header>
+
+  <h2 class="section-title" id="products">
+    Our Chocolate Collection
+  </h2>
+
+  <section class="products">
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=1" alt="">
+      <div class="card-content">
+        <h3>Gold Pistachio Chocolate</h3>
+        <p>Luxury milk chocolate with roasted pistachio filling.</p>
+        <div class="price">$18</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=2" alt="">
+      <div class="card-content">
+        <h3>Dark Royal Chocolate</h3>
+        <p>Premium dark chocolate crafted for intense cocoa lovers.</p>
+        <div class="price">$20</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=3" alt="">
+      <div class="card-content">
+        <h3>Hazelnut Cream Bar</h3>
+        <p>Smooth hazelnut cream wrapped in silky chocolate layers.</p>
+        <div class="price">$16</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=4" alt="">
+      <div class="card-content">
+        <h3>White Vanilla Pearl</h3>
+        <p>Sweet white chocolate infused with natural vanilla flavor.</p>
+        <div class="price">$17</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=5" alt="">
+      <div class="card-content">
+        <h3>Caramel Desert Cube</h3>
+        <p>Golden caramel center with crunchy chocolate coating.</p>
+        <div class="price">$19</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=6" alt="">
+      <div class="card-content">
+        <h3>Luxury Date Chocolate</h3>
+        <p>Traditional Dubai dates blended with fine chocolate.</p>
+        <div class="price">$21</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=7" alt="">
+      <div class="card-content">
+        <h3>Berry Fusion Delight</h3>
+        <p>Chocolate combined with sweet berry cream sensation.</p>
+        <div class="price">$18</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/400/300?random=8" alt="">
+      <div class="card-content">
+        <h3>Dubai Signature Box</h3>
+        <p>An exclusive collection of our best-selling chocolates.</p>
+        <div class="price">$35</div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="about">
+    <h2>Why Choose Dubai Chocolate?</h2>
+
+    <p>
+      Dubai Chocolate combines luxury ingredients, modern craftsmanship,
+      and unforgettable flavors into one premium experience.
+      Every bite is designed to bring elegance and satisfaction.
+    </p>
+
+    <br>
+
+    <p>
+      Perfect for gifts, celebrations, or personal indulgence.
+      Trusted by chocolate lovers around the world.
+    </p>
+  </section>
+
+  <footer>
+    © 2026 Dubai Chocolate — Premium Taste Experience
+  </footer>
 
 </body>
 </html>
