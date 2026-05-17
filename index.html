@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Dubai Chocolate</title>
 
@@ -17,218 +19,244 @@
 
     body{
       font-family: Arial, sans-serif;
-      background:#f5efe6;
-      color:#3d2617;
+      background-color:#f8f1e7;
+      color:#3b2a1a;
     }
 
     /* HEADER */
 
-    .hero{
-      background:#6b3f1d;
+    header{
+      background-color:#5c3b1e;
       color:white;
       text-align:center;
-      padding:120px 20px;
+      padding:60px 20px;
     }
 
-    .hero h1{
-      font-size:80px;
-      margin-bottom:20px;
-      font-weight:bold;
+    header h1{
+      font-size:60px;
+      margin-bottom:15px;
     }
 
-    .hero p{
-      font-size:32px;
-      opacity:0.9;
+    header p{
+      font-size:22px;
     }
 
-    /* IMAGE */
+    /* HERO IMAGE */
 
-    .main-image{
-      display:flex;
-      justify-content:center;
-      margin-top:60px;
-      padding:0 20px;
+    .hero{
+      text-align:center;
+      padding:40px 20px;
     }
 
-    .main-image img{
-  width: 100%;
-  max-width: 600px;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 25px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
+    .hero img{
+      width:100%;
+      max-width:600px;
+      height:500px;
+      object-fit:cover;
+      border-radius:25px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    }
 
-    /* CONTENT BOX */
+    /* CONTENT */
 
-    .box{
-      background:white;
-      width:90%;
+    .content{
       max-width:950px;
-      margin:50px auto;
-      padding:50px;
-      border-radius:35px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      margin:auto;
+      padding:20px;
     }
 
-    .box h2{
-      font-size:55px;
-      margin-bottom:30px;
-      color:#3b2415;
-    }
+    /* CARD */
 
-    .box p{
-      font-size:28px;
+    .card{
+      background:white;
+      padding:35px;
+      margin-top:30px;
+      border-radius:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
       line-height:1.8;
     }
 
-    .box ul{
-      margin-left:35px;
-      margin-top:20px;
+    .card h2{
+      font-size:40px;
+      margin-bottom:20px;
     }
 
-    .box li{
-      font-size:28px;
-      margin-bottom:18px;
+    .card p,
+    .card li{
+      font-size:24px;
     }
 
-    /* CTA */
+    .card ul{
+      padding-left:30px;
+    }
 
-    .cta{
+    /* BUTTON */
+
+    .button-box{
       text-align:center;
     }
 
-    .cta button{
-      background:#9c642c;
+    button{
+      background-color:#8b5a2b;
       color:white;
       border:none;
-      padding:22px 55px;
-      font-size:30px;
-      border-radius:20px;
+      padding:15px 30px;
+      border-radius:12px;
       cursor:pointer;
-      margin-top:30px;
+      font-size:20px;
       transition:0.3s;
+      margin-top:20px;
     }
 
-    .cta button:hover{
-      background:#7a4d23;
+    button:hover{
+      background-color:#6f431c;
     }
 
     /* FOOTER */
 
     footer{
-      background:#6b3f1d;
-      color:white;
       text-align:center;
-      padding:50px 20px;
-      margin-top:80px;
-      font-size:24px;
+      background-color:#5c3b1e;
+      color:white;
+      padding:20px;
+      margin-top:50px;
+      font-size:18px;
     }
 
     /* MOBILE */
 
     @media(max-width:768px){
 
-      .hero h1{
-        font-size:55px;
+      header h1{
+        font-size:45px;
       }
 
-      .hero p{
-        font-size:24px;
+      header p{
+        font-size:18px;
       }
 
-      .box{
-        padding:35px;
-      }
-
-      .box h2{
-        font-size:40px;
-      }
-
-      .box p,
-      .box li{
-        font-size:22px;
+      .hero img{
+        height:350px;
       }
 
       .card{
-        width:100%;
+        padding:25px;
+      }
+
+      .card h2{
+        font-size:30px;
+      }
+
+      .card p,
+      .card li{
+        font-size:18px;
+      }
+
+      button{
+        font-size:18px;
       }
 
     }
 
   </style>
+
 </head>
 
 <body>
 
   <!-- HEADER -->
 
-  <section class="hero">
+  <header>
+
     <h1>Dubai Chocolate</h1>
+
     <p>Luxury Taste From Dubai</p>
-  </section>
 
-  <!-- MAIN IMAGE -->
+  </header>
 
-  <section class="main-image">
+  <!-- IMAGE -->
+
+  <section class="hero">
 
     <!-- THAY ẢNH TẠI ĐÂY -->
+
     <img src="chocolate.jpg" alt="Dubai Chocolate">
 
   </section>
 
-  <!-- ABOUT -->
+  <!-- CONTENT -->
 
-  <section class="box">
+  <section class="content">
 
-    <h2>About Dubai Chocolate</h2>
+    <!-- ABOUT -->
 
-    <p>
-      Dubai Chocolate is famous for its luxurious taste,
-      premium ingredients, and elegant packaging.
-      Many Dubai chocolates include pistachio,
-      saffron, dates, and premium cocoa from the Middle East.
-    </p>
+    <div class="card">
 
-  </section>
+      <h2>About Dubai Chocolate</h2>
 
-  <!-- WHY PEOPLE LOVE IT -->
+      <p>
 
-  <section class="box">
+        Dubai Chocolate is famous for its luxurious taste,
+        premium ingredients, and elegant design.
+        Many chocolates from Dubai include pistachio,
+        dates, saffron, and gold decoration.
 
-    <h2>Why People Love It</h2>
+      </p>
 
-    <ul>
-      <li>Rich and premium chocolate flavor</li>
-      <li>Luxury gift packaging</li>
-      <li>Unique Middle Eastern ingredients</li>
-      <li>Perfect for gifts and celebrations</li>
-    </ul>
+    </div>
 
-  </section>
+    <!-- WHY PEOPLE LOVE IT -->
 
-  <!-- CTA -->
+    <div class="card">
 
-  <section class="box cta">
+      <h2>Why People Love It</h2>
 
-    <h2>Try Dubai Chocolate Today!</h2>
+      <ul>
 
-    <button onclick="showMessage()">
-      Click Me
-    </button>
+        <li>Rich chocolate flavor</li>
+
+        <li>Luxury packaging</li>
+
+        <li>Unique Middle Eastern ingredients</li>
+
+        <li>Perfect gift for special occasions</li>
+
+      </ul>
+
+    </div>
+
+    <!-- BUTTON -->
+
+    <div class="card button-box">
+
+      <h2>Try Dubai Chocolate Today!</h2>
+
+      <button onclick="showMessage()">
+
+        Click Me
+
+      </button>
+
+    </div>
 
   </section>
 
   <!-- FOOTER -->
 
   <footer>
-    Made with ❤️ for Chocolate Lovers
+
+    <p>Made with ❤️ for Chocolate Lovers</p>
+
   </footer>
+
+  <!-- SCRIPT -->
 
   <script>
 
     function showMessage(){
-      alert("Thank you for visiting Dubai Chocolate!");
+
+      alert("Welcome to the sweet world of Dubai Chocolate!");
+
     }
 
   </script>
