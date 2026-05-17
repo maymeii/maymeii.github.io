@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Dubai Chocolate</title>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -14,94 +17,157 @@
 
     body{
       font-family: Arial, sans-serif;
-      background-color:#f4efe6;
+      background:#f5efe6;
       color:#3d2617;
-      line-height:1.8;
     }
 
     /* HEADER */
+
     .hero{
-      background-color:#6b431f;
+      background:#6b3f1d;
       color:white;
       text-align:center;
-      padding:100px 20px;
+      padding:120px 20px;
     }
 
     .hero h1{
-      font-size:70px;
-      font-weight:bold;
+      font-size:80px;
       margin-bottom:20px;
+      font-weight:bold;
     }
 
     .hero p{
-      font-size:28px;
+      font-size:32px;
+      opacity:0.9;
     }
 
     /* IMAGE */
-    .image-section{
+
+    .main-image{
       display:flex;
       justify-content:center;
-      padding:60px 20px;
+      margin-top:60px;
+      padding:0 20px;
     }
 
-    .image-section img{
-      width:80%;
-      max-width:700px;
+    .main-image img{
+      width:85%;
+      max-width:850px;
       border-radius:30px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
     }
 
     /* CONTENT BOX */
-    .content-box{
+
+    .box{
       background:white;
       width:90%;
-      max-width:900px;
-      margin:40px auto;
+      max-width:950px;
+      margin:50px auto;
       padding:50px;
-      border-radius:30px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      border-radius:35px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
     }
 
-    .content-box h2{
+    .box h2{
       font-size:55px;
       margin-bottom:30px;
-      color:#3d2617;
+      color:#3b2415;
     }
 
-    .content-box p,
-    .content-box li{
+    .box p{
       font-size:28px;
+      line-height:1.8;
     }
 
-    .content-box ul{
-      margin-left:40px;
+    .box ul{
+      margin-left:35px;
       margin-top:20px;
     }
 
-    /* BUTTON */
-    .button-area{
-      text-align:center;
-      margin-top:40px;
+    .box li{
+      font-size:28px;
+      margin-bottom:18px;
     }
 
-    .button-area button{
-      background-color:#9c642c;
+    /* PRODUCT SECTION */
+
+    .products{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .card{
+      background:#fff7f0;
+      width:260px;
+      border-radius:25px;
+      padding:20px;
+      text-align:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card img{
+      width:100%;
+      border-radius:20px;
+      margin-bottom:15px;
+    }
+
+    .card h3{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .price{
+      font-size:24px;
+      color:#8b4513;
+      font-weight:bold;
+      margin-bottom:15px;
+    }
+
+    .buy-btn{
+      background:#9c642c;
       color:white;
       border:none;
-      padding:20px 50px;
-      font-size:30px;
-      border-radius:20px;
+      padding:15px 30px;
+      border-radius:15px;
+      font-size:20px;
       cursor:pointer;
       transition:0.3s;
     }
 
-    .button-area button:hover{
-      background-color:#7b4d21;
+    .buy-btn:hover{
+      background:#7a4d23;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+    }
+
+    .cta button{
+      background:#9c642c;
+      color:white;
+      border:none;
+      padding:22px 55px;
+      font-size:30px;
+      border-radius:20px;
+      cursor:pointer;
+      margin-top:30px;
+      transition:0.3s;
+    }
+
+    .cta button:hover{
+      background:#7a4d23;
     }
 
     /* FOOTER */
+
     footer{
-      background-color:#6b431f;
+      background:#6b3f1d;
       color:white;
       text-align:center;
       padding:50px 20px;
@@ -110,6 +176,7 @@
     }
 
     /* MOBILE */
+
     @media(max-width:768px){
 
       .hero h1{
@@ -117,26 +184,26 @@
       }
 
       .hero p{
-        font-size:22px;
+        font-size:24px;
       }
 
-      .content-box{
+      .box{
         padding:35px;
       }
 
-      .content-box h2{
+      .box h2{
         font-size:40px;
       }
 
-      .content-box p,
-      .content-box li{
+      .box p,
+      .box li{
         font-size:22px;
       }
 
-      .button-area button{
-        font-size:24px;
-        padding:18px 40px;
+      .card{
+        width:100%;
       }
+
     }
 
   </style>
@@ -144,58 +211,120 @@
 
 <body>
 
-  <!-- HERO -->
+  <!-- HEADER -->
+
   <section class="hero">
     <h1>Dubai Chocolate</h1>
     <p>Luxury Taste From Dubai</p>
   </section>
 
-  <!-- IMAGE -->
-  <section class="image-section">
+  <!-- MAIN IMAGE -->
 
-    <!-- THAY ẢNH Ở ĐÂY -->
-    <img src="IMG_1471.jpeg" alt="Dubai Chocolate">
+  <section class="main-image">
+
+    <!-- THAY ẢNH TẠI ĐÂY -->
+    <img src="chocolate.jpg" alt="Dubai Chocolate">
 
   </section>
 
   <!-- ABOUT -->
-  <section class="content-box">
+
+  <section class="box">
+
     <h2>About Dubai Chocolate</h2>
 
     <p>
       Dubai Chocolate is famous for its luxurious taste,
-      premium ingredients, and elegant design.
-      Many chocolates from Dubai include pistachio,
-      dates, saffron, and gold decoration.
+      premium ingredients, and elegant packaging.
+      Many Dubai chocolates include pistachio,
+      saffron, dates, and premium cocoa from the Middle East.
     </p>
+
   </section>
 
-  <!-- WHY LOVE -->
-  <section class="content-box">
+  <!-- WHY PEOPLE LOVE IT -->
+
+  <section class="box">
+
     <h2>Why People Love It</h2>
 
     <ul>
-      <li>Rich chocolate flavor</li>
-      <li>Luxury packaging</li>
+      <li>Rich and premium chocolate flavor</li>
+      <li>Luxury gift packaging</li>
       <li>Unique Middle Eastern ingredients</li>
-      <li>Perfect gift for special occasions</li>
+      <li>Perfect for gifts and celebrations</li>
     </ul>
+
   </section>
 
-  <!-- BUTTON -->
-  <section class="content-box">
+  <!-- PRODUCTS -->
 
-    <h2>Try Dubai Chocolate Today!</h2>
+  <section class="box">
 
-    <div class="button-area">
-      <button onclick="showMessage()">
-        Click Me
-      </button>
+    <h2>Popular Products</h2>
+
+    <div class="products">
+
+      <div class="card">
+
+        <img src="chocolate.jpg" alt="Chocolate">
+
+        <h3>Pistachio Chocolate</h3>
+
+        <div class="price">₩19,000</div>
+
+        <button class="buy-btn">
+          Buy Now
+        </button>
+
+      </div>
+
+      <div class="card">
+
+        <img src="chocolate.jpg" alt="Chocolate">
+
+        <h3>Luxury Gold Chocolate</h3>
+
+        <div class="price">₩25,000</div>
+
+        <button class="buy-btn">
+          Buy Now
+        </button>
+
+      </div>
+
+      <div class="card">
+
+        <img src="chocolate.jpg" alt="Chocolate">
+
+        <h3>Dubai Gift Box</h3>
+
+        <div class="price">₩39,000</div>
+
+        <button class="buy-btn">
+          Buy Now
+        </button>
+
+      </div>
+
     </div>
 
   </section>
 
+  <!-- CTA -->
+
+  <section class="box cta">
+
+    <h2>Try Dubai Chocolate Today!</h2>
+
+    <button onclick="showMessage()">
+      Click Me
+    </button>
+
+  </section>
+
   <!-- FOOTER -->
+
   <footer>
     Made with ❤️ for Chocolate Lovers
   </footer>
@@ -209,4 +338,5 @@
   </script>
 
 </body>
+
 </html>
